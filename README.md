@@ -1,9 +1,11 @@
 Link Aplikasi Heroku: https://pbp-katalog-natania.herokuapp.com/katalog/
 
 
+Jawaban Pertanyaan:
+
 I. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
-![Bagan Django](static\bagan_django.png)
+![Bagan Django](https://github.com/nataniadeandra/django-pbp-tugas/blob/main/static/bagan_django.png)
 
 Pertama, request client akan dipetakan oleh URLS (urls.py) sesuai dengan path dari request tersebut. Setelah itu, request akan diteruskan ke view (views.py) untuk diproses. Selanjutnya, view akan meminta bantuan models (models.py) untuk membaca data dari database atau menulis ke database. Lalu, view akan memanggil template (katalog.html) untuk merender data sesuai dengan format file dan terakhir, hasil render akan dikembalikan dalam bentuk HTTP Response kepada client.
 
@@ -24,7 +26,7 @@ Untuk melakukan pengambilan data dari database, kita perlu untuk meng-import mod
 Implementasi routing pada urls.py terhadap fungsi pada views yaitu show_katalog yang telah dibuat agar halaman HTML dapat ditampilkan lewat browser dan menambahkan 'katalog' sebagai app_name serta menambahkan path('katalog/', include('katalog.urls')), pada urls.py yang ada pada folder project_django pada variable urlpatterns untuk mendaftarkan aplikasi katalog.
 
 3. Memetakan data yang didapatkan ke dalam HTML dengan sintaks dari Django untuk pemetaan data template.
-Mengganti kata "Fill me!" di bawah <h5>Name: </h5> dan <h5>Student ID: </h5> pada katalog.html menjadi {{nama}} dan {{npm}} agar menyesuaikan dengan data kita. Dibawah nama dan NPM, kita buat for loop menggunakan sintaks Django untuk mencetak untuk nama, harga, stok, rating, deskripsi, serta url dari setiap barang yang ada pada list_barang.
+Mengganti kata "Fill me!" di bawah "Name: " dan "Student ID: " pada katalog.html menjadi {{nama}} dan {{npm}} agar menyesuaikan dengan data kita. Dibawah nama dan NPM, kita buat for loop menggunakan sintaks Django untuk mencetak untuk nama, harga, stok, rating, deskripsi, serta url dari setiap barang yang ada pada list_barang.
 
 4. Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 Membuat aplikasi baru pada Heroku, menambahkan api key dan app name pada repository secret, hubungkan aplikasi Heroku dengan repository GitHub, lalu deploy.
