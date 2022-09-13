@@ -20,13 +20,17 @@ Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual 
 III. Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas.
 
 1. Membuat sebuah fungsi pada views.py yang dapat melakukan pengambilan data dari model dan dikembalikan ke dalam sebuah HTML.
+
 Untuk melakukan pengambilan data dari database, kita perlu untuk meng-import models yang sudah ada. Lalu, kita gunakan method objects.all() untuk mendapatkan semua object dari class CatalogueItem. Untuk mengembalikan data ke dalam sebuah HTML, kita perlu membuat fungsi show_katalog yang menerima suatu request dan mengembalikan render(request, "katalog.html", context). Tampilan halaman HTML akan mengikuti katalog.html dan data pada variable context, yaitu list_barang, nama, dan npm, akan ikut di-render sehingga data tersebut bisa muncul pada halaman HTML.
 
 2. Membuat sebuah routing untuk memetakan fungsi yang telah kamu buat pada views.py.
+
 Implementasi routing pada urls.py terhadap fungsi pada views yaitu show_katalog yang telah dibuat agar halaman HTML dapat ditampilkan lewat browser dan menambahkan 'katalog' sebagai app_name serta menambahkan path('katalog/', include('katalog.urls')), pada urls.py yang ada pada folder project_django pada variable urlpatterns untuk mendaftarkan aplikasi katalog.
 
 3. Memetakan data yang didapatkan ke dalam HTML dengan sintaks dari Django untuk pemetaan data template.
+
 Mengganti kata "Fill me!" di bawah "Name: " dan "Student ID: " pada katalog.html menjadi {{nama}} dan {{npm}} agar menyesuaikan dengan data kita. Dibawah nama dan NPM, kita buat for loop menggunakan sintaks Django untuk mencetak untuk nama, harga, stok, rating, deskripsi, serta url dari setiap barang yang ada pada list_barang.
 
 4. Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+
 Membuat aplikasi baru pada Heroku, menambahkan api key dan app name pada repository secret, hubungkan aplikasi Heroku dengan repository GitHub, lalu deploy.
