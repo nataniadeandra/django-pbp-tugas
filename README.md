@@ -45,48 +45,48 @@ Jawaban Pertanyaan:
 
 I. Jelaskan perbedaan antara JSON, XML, dan HTML!
 
-    HTML (Hypertext Markup Language):
-    - HTML berfokus pada presentasi data
-    - HTML berfungsi untuk mengatur tampilan dari suatu website
-    - HTML bersifat case-insensitive
+HTML (Hypertext Markup Language):
+- HTML berfokus pada presentasi data
+- HTML berfungsi untuk mengatur tampilan dari suatu website
+- HTML bersifat case-insensitive
 
-    XML (eXtensible Markup Language):
-    - XML berfokus pada penyimpanan dan pengiriman data
-    - XML menyimpan data secara terstruktur dan mudah dibaca, tetapi kurang efisien
-    - XML umumnya digunakan oleh pengguna untuk menambahkan catatan
-    - XML bersifat case-sensitive
+XML (eXtensible Markup Language):
+- XML berfokus pada penyimpanan dan pengiriman data
+- XML menyimpan data secara terstruktur dan mudah dibaca, tetapi kurang efisien
+- XML umumnya digunakan oleh pengguna untuk menambahkan catatan
+- XML bersifat case-sensitive
 
-    JSON (JavaScript Object Notation):
-    - JSON berfokus pada penyimpanan dan pengiriman data
-    - JSON menyimpan data secara efisien akan tetapi tidak rapi untuk dilihat
-    - JSON umumnya digunakan untuk mengirimkan data dengan cara data diuraikan dan dikirimkan melalui internet
-    - JSON bersifat case-sensitive
+JSON (JavaScript Object Notation):
+- JSON berfokus pada penyimpanan dan pengiriman data
+- JSON menyimpan data secara efisien akan tetapi tidak rapi untuk dilihat
+- JSON umumnya digunakan untuk mengirimkan data dengan cara data diuraikan dan dikirimkan melalui internet
+- JSON bersifat case-sensitive
 
 II. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 
-    Dalam mengembangkan suatu platform, ada kalanya kita perlu mengirimkan data dari satu stack ke stack lainnya. Data yang dikirimkan bisa bermacam-macam bentuknya. Beberapa contoh format data yang umum digunakan antara lain HTML, XML, dan JSON.
+Dalam mengembangkan suatu platform, ada kalanya kita perlu mengirimkan data dari satu stack ke stack lainnya. Data yang dikirimkan bisa bermacam-macam bentuknya. Beberapa contoh format data yang umum digunakan antara lain HTML, XML, dan JSON.
 
 III. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 
-    1. Masuk ke dalam directory tugas pada terminal, lalu jalankan django-admin startapp.
+1. Masuk ke dalam directory tugas pada terminal, lalu jalankan django-admin startapp.
 
-    2. Menambahkan 'mywatchlist' pada INSTALLED_APPS di settings.py dan menambahkan path('mywatchlist/', include('mywatchlist.urls')) pada urlpatterns di urls.py pada folder project_django.
+2. Menambahkan 'mywatchlist' pada INSTALLED_APPS di settings.py dan menambahkan path('mywatchlist/', include('mywatchlist.urls')) pada urlpatterns di urls.py pada folder project_django.
 
-    3. Membuat class MyWatchList pada models.py dan meng-import models serta menambahkan models.Model sebagai argumen pada class MyWatchList untuk menandakan bahwa class akan dipakai sebagai model. Selain itu, kita juga perlu membuat atribut dari class tersebut dan menyesuaikan field-nya dengan tipe data dari atribut tersebut.
+3. Membuat class MyWatchList pada models.py dan meng-import models serta menambahkan models.Model sebagai argumen pada class MyWatchList untuk menandakan bahwa class akan dipakai sebagai model. Selain itu, kita juga perlu membuat atribut dari class tersebut dan menyesuaikan field-nya dengan tipe data dari atribut tersebut.
 
-    4. Membuat sebuah folder bernama fixtures di dalam folder aplikasi wishlist dan buat file initial_mywatchlist_data.json pada folder tersebut. Lalu, buatlah sebuah list yang berisi 10 data object MyWatchList. Model data menggunakan model yang sudah dibuat pada poin 3, primary key dari tiap data kita atur sesuai dengan urutan data dari 1 sampai 10, dan untuk fields dari masing-masing data juga kita atur tiap atributnya.
+4. Membuat sebuah folder bernama fixtures di dalam folder aplikasi wishlist dan buat file initial_mywatchlist_data.json pada folder tersebut. Lalu, buatlah sebuah list yang berisi 10 data object MyWatchList. Model data menggunakan model yang sudah dibuat pada poin 3, primary key dari tiap data kita atur sesuai dengan urutan data dari 1 sampai 10, dan untuk fields dari masing-masing data juga kita atur tiap atributnya.
 
-    5. Untuk HTML, kita perlu melakukan pengambilan data dari database. Oleh karena itu, kita perlu untuk meng-import models yang sudah ada terlebih dahulu. Lalu, kita gunakan method objects.all() untuk mendapatkan semua object dari class MyWatchList. Untuk mengembalikan data ke dalam sebuah HTML, kita perlu membuat fungsi yang menerima suatu request dan mengembalikan render(request, "mywatchlist.html", context). Tampilan halaman HTML akan mengikuti mhywatchlist.html dan data pada variable context, yaitu watch_list, nama, dan npm, akan ikut di-render sehingga data tersebut bisa muncul pada halaman HTML. Untuk XML dan JSON, kita harus meng-import HttpResponse dan serializers terlebih dahulu. Setelah itu, buatlah 2 fungsi yang menerima parameter request, satu untuk XML dan yang lainnya untuk JSON. Di dalam fungsi tersebut, kita buah suatu variabel yang berfungsi untuk menyimpan hasil query dari semua data pada MyWatchList dan tambahkan suatu return function berupa HttpResponse yang berisi parameter data hasil query yang sudah diserialisasi menjadi XML/JSON dan parameter content_type="application/xml" untuk XML atau parameter content_type="application/json" untuk JSON.
-    
-    6. Pada urls.py import ketiga fungsi pada poin 5 dan tambahkan path url ke dalam urlpatterns, yaitu:
-    
-        path('html/', show_html, name=show_html),
-        path('xml/', show_xml, name=’show_xml’),
-        path('json/', show_json, name=’show_json’),
+5. Untuk HTML, kita perlu melakukan pengambilan data dari database. Oleh karena itu, kita perlu untuk meng-import models yang sudah ada terlebih dahulu. Lalu, kita gunakan method objects.all() untuk mendapatkan semua object dari class MyWatchList. Untuk mengembalikan data ke dalam sebuah HTML, kita perlu membuat fungsi yang menerima suatu request dan mengembalikan render(request, "mywatchlist.html", context). Tampilan halaman HTML akan mengikuti mhywatchlist.html dan data pada variable context, yaitu watch_list, nama, dan npm, akan ikut di-render sehingga data tersebut bisa muncul pada halaman HTML. Untuk XML dan JSON, kita harus meng-import HttpResponse dan serializers terlebih dahulu. Setelah itu, buatlah 2 fungsi yang menerima parameter request, satu untuk XML dan yang lainnya untuk JSON. Di dalam fungsi tersebut, kita buah suatu variabel yang berfungsi untuk menyimpan hasil query dari semua data pada MyWatchList dan tambahkan suatu return function berupa HttpResponse yang berisi parameter data hasil query yang sudah diserialisasi menjadi XML/JSON dan parameter content_type="application/xml" untuk XML atau parameter content_type="application/json" untuk JSON.
 
+6. Pada urls.py import ketiga fungsi pada poin 5 dan tambahkan path url ke dalam urlpatterns, yaitu:
+    ```
+    path('html/', show_html, name=show_html),
+    path('xml/', show_xml, name=’show_xml’),
+    path('json/', show_json, name=’show_json’),
+    ```
     untuk mengakses fungsi yang sudah di-import sebelumnya.
 
-    7. Karena aplikasi sudah ada pada Heroku, API key beserta app name sudah ditambahkan juga sebelumnya pada repository secret, dan aplikasi Heroku sudah terhubung dengan repository GitHub, kita hanya cukup men-deploy-nya saja.
+7. Karena aplikasi sudah ada pada Heroku, API key beserta app name sudah ditambahkan juga sebelumnya pada repository secret, dan aplikasi Heroku sudah terhubung dengan repository GitHub, kita hanya cukup men-deploy-nya saja.
 
 IV. Screenshot Postman
 
