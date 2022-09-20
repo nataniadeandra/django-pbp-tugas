@@ -5,7 +5,6 @@
 
 Link Aplikasi Heroku: https://pbp-katalog-natania.herokuapp.com/katalog/
 
-
 Jawaban Pertanyaan:
 
 I. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
@@ -14,13 +13,11 @@ I. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django bese
 
 Pertama, request client akan dipetakan oleh URLS (urls.py) sesuai dengan path dari request tersebut. Setelah itu, request akan diteruskan ke view (views.py) untuk diproses. Selanjutnya, view akan meminta bantuan models (models.py) untuk membaca data dari database atau menulis ke database. Lalu, view akan memanggil template (katalog.html) untuk merender data sesuai dengan format file dan terakhir, hasil render akan dikembalikan dalam bentuk HTTP Response kepada client.
 
-
 II. Jelaskan kenapa menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
 
 Kita menggunakan virtual environment untuk memisahkan dependencies yang dibutuhkan untuk tiap project. Misalkan, project lama kita menggunakan Django versi yang lama, lalu muncul Django versi terbaru sehingga kita melakukan upgrade karena kita ingin membuat aplikasi lain dengan Django versi terbaru. Setelah itu, kita mencoba untuk menjalankan aplikasi lama kita, maka aplikasi kita tidak akan berjalan dengan baik karena terjadi banyak perubahan fungsi dari Django versi yang lama ke yang baru. Oleh karena itu, kita menggunakan virtual environment agar tiap project / aplikasi memiliki dependencies-nya masing-masing. Selain itu, apabila kita mengerjakan suatu project pada device yang berbeda atau mengerjakannya bersama-sama dengan orang lain dalam suatu tim, kita harus memastikan bahwa setiap device / setiap orang agar versi dari setiap dependencies yang digunakan sama. Namun, akan susah untuk memastikan hal di atas sehingga dibuatlah virtual environment untuk mengatasi masalah tersebut.
 
 Kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment, tetapi dependenices-nya tidak bisa kita tentukan secara spesifik untuk tiap project, melainkan mengikuti apa yang sudah ter-install pada device kita. Oleh karena itu, mungkin sedikit sulit apabila kita mengerjakan project dalam satu tim atau mengerjakannya pada device yang berbeda karena belum tentu versi dependencies yang ter-install pada device setiap orang sama. Apabila versi dari dependencies yang digunakan berbeda, maka belum tentu program dapat berjalan dengan baik. Oleh karena itu, meskipun tidak wajib, lebih baik untuk menggunakan virtual environment untuk tiap project yang berbeda.
-
 
 III. Jelaskan bagaimana cara kamu mengimplementasikan poin 1 sampai dengan 4 di atas.
 
@@ -39,6 +36,7 @@ Mengganti kata "Fill me!" di bawah "Name: " dan "Student ID: " pada katalog.html
 4. Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 
 Membuat aplikasi baru pada Heroku, menambahkan api key dan app name pada repository secret, hubungkan aplikasi Heroku dengan repository GitHub, lalu deploy.
+<<<<<<< HEAD
 </details>
 
 <details>
@@ -103,3 +101,5 @@ IV. Screenshot Postman
 ![JSON Postman](/static/json_mywatchlist.jpg)
 
 </details>
+=======
+>>>>>>> 83396863c4ba23f81488a60a55b924f5345a1805
