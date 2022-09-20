@@ -36,7 +36,6 @@ Mengganti kata "Fill me!" di bawah "Name: " dan "Student ID: " pada katalog.html
 4. Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 
 Membuat aplikasi baru pada Heroku, menambahkan api key dan app name pada repository secret, hubungkan aplikasi Heroku dengan repository GitHub, lalu deploy.
-<<<<<<< HEAD
 </details>
 
 <details>
@@ -101,5 +100,3 @@ IV. Screenshot Postman
 ![JSON Postman](/static/json_mywatchlist.jpg)
 
 </details>
-=======
->>>>>>> 83396863c4ba23f81488a60a55b924f5345a1805
