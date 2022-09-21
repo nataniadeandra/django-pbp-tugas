@@ -45,7 +45,7 @@ Link Aplikasi Heroku: https://pbp-katalog-natania.herokuapp.com/mywatchlist/
 
 Jawaban Pertanyaan:
 
-I. Jelaskan perbedaan antara JSON, XML, dan HTML!
+<h2>I. Jelaskan perbedaan antara JSON, XML, dan HTML!</h2>
 
 HTML (Hypertext Markup Language):
 - HTML berfokus pada presentasi data
@@ -64,11 +64,11 @@ JSON (JavaScript Object Notation):
 - JSON umumnya digunakan untuk mengirimkan data dengan cara data diuraikan dan dikirimkan melalui internet
 - JSON bersifat case-sensitive
 
-II. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+<h2>II. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?</h2>
 
 Dalam mengembangkan suatu platform, ada kalanya kita perlu mengirimkan data dari satu stack ke stack lainnya. Data yang dikirimkan bisa bermacam-macam bentuknya. Beberapa contoh format data yang umum digunakan antara lain HTML, XML, dan JSON.
 
-III. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+<h2>III. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.</h2>
 
 1. Masuk ke dalam directory tugas pada terminal, lalu jalankan django-admin startapp.
 
@@ -82,23 +82,23 @@ III. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 
 6. Pada urls.py import ketiga fungsi pada poin 5 dan tambahkan path url ke dalam urlpatterns, yaitu:
     ```
-    path('html/', show_html, name=show_html),
-    path('xml/', show_xml, name=’show_xml’),
-    path('json/', show_json, name=’show_json’),
+    path('html/', show_html, name='show_html'),
+    path('xml/', show_xml, name='show_xml'),
+    path('json/', show_json, name='show_json'),
     ```
     untuk mengakses fungsi yang sudah di-import sebelumnya.
 
 7. Karena aplikasi sudah ada pada Heroku, API key beserta app name sudah ditambahkan juga sebelumnya pada repository secret, dan aplikasi Heroku sudah terhubung dengan repository GitHub, kita hanya cukup men-deploy-nya saja.
 
-IV. Screenshot Postman
+<h2>IV. Screenshot Postman</h2>
 
 1. HTML
-![HTML Postman](/static/html_mywatchlist.jpg)
+![HTML Postman](/static/html_postman_mywatchlist.jpg)
 
 2. XML
-![XML Postman](/static/xml_mywatchlist.jpg)
+![XML Postman](/static/xml_postman_mywatchlist.jpg)
 
 3. JSON
-![JSON Postman](/static/json_mywatchlist.jpg)
+![JSON Postman](/static/json_postman_mywatchlist.jpg)
 
 </details>
