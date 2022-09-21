@@ -16,6 +16,26 @@ def show_json(request):
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_pesan(request):
+    data_my_watch_list = MyWatchList.objects.all()
+
+    watched_count = 0
+    unwatched_count = 0
+
+    for movie in data_my_watch_list:
+        if movie.watch == True:
+            watched_count += 1
+        else:
+            unwatched_count += 1
+
+    if watched_count >= unwatched_count:
+        pesan = "Selamat, kamu sudah banyak menonton!"
+    else:
+        pesan = "Wah, kamu masih sedikit menonton!"
+       
+    context_pesan = {
+        'pesan': pesan,
+    }
+
     return render(request, "pesan.html", context_pesan)
 
 
@@ -27,20 +47,3 @@ context = {
     'npm': 2106633090,
 }
 
-watched_count = 0
-unwatched_count = 0
-
-for movie in data_my_watch_list:
-    if movie.watch == True:
-        watched_count += 1
-    else:
-        unwatched_count += 1
-
-if watched_count >= unwatched_count:
-    pesan = "Selamat, kamu sudah banyak menonton!"
-else:
-    pesan = "Wah, kamu masih sedikit menonton!"
-
-context_pesan = {
-    'pesan': pesan,
-}
