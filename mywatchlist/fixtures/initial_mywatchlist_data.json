@@ -5,7 +5,7 @@
         "fields": {
             "watched": false,
             "title": "The Godfather",
-            "rating": 10,
+            "rating": 5,
             "release_date": "1972-03-24",
             "review": "A beautifully crafted gangster film. An amazing period piece. A character study."
         }
@@ -16,7 +16,7 @@
         "fields": {
             "watched": true,
             "title": "The Shawshank Redemption",
-            "rating": 7,
+            "rating": 3,
             "release_date": "1994-09-22",
             "review": "A beloved, incessantly revisited, stone-cold classic."            
         }
@@ -27,7 +27,7 @@
         "fields": {
             "watched": true,
             "title": "Divergent",
-            "rating": 6,
+            "rating": 3,
             "release_date": "2014-03-20",
             "review": "This is a rite-of-passage film, with action, romance and self-realization woven in." 
         }
@@ -38,7 +38,7 @@
         "fields": {
             "watched": true,
             "title": "Insurgent",
-            "rating": 4,
+            "rating": 2,
             "release_date": "2015-03-19",
             "review": "The film's inability to stand out resulted in a story that feels bland and lifeless." 
         }
@@ -49,7 +49,7 @@
         "fields": {
             "watched": true,
             "title": "The Fault in Our Stars",
-            "rating": 7,
+            "rating": 3,
             "release_date": "2014-08-22",
             "review": "This film could indeed become this generation's Love Story -- mildly implausible, but genuinely moving. " 
         }
@@ -60,7 +60,7 @@
         "fields": {
             "watched": true,
             "title": "Paper Towns",
-            "rating": 9,
+            "rating": 4,
             "release_date": "2015-08-28",
             "review": "Hollywood can surprise us and serve up an honest, funny, entertaining, and endearing film." 
         }
@@ -71,7 +71,7 @@
         "fields": {
             "watched": false,
             "title": "Inception",
-            "rating": 9,
+            "rating": 4,
             "release_date": "2010-07-16",
             "review": "Mind-blowing, amazing, smart, thrilling. That's all." 
         }
@@ -82,7 +82,7 @@
         "fields": {
             "watched": false,
             "title": "Bohemian Rhapsody",
-            "rating": 7,
+            "rating": 3,
             "release_date": "2019-01-22",
             "review": "A sensitive film that doesn't fall into triteness." 
         }
@@ -93,7 +93,7 @@
         "fields": {
             "watched": true,
             "title": "Minions: The Rise of Gru",
-            "rating": 7,
+            "rating": 4,
             "release_date": "2022-07-01",
             "review": "A frequently funny, handsomely animated and generally enjoyable movie." 
         }
@@ -104,7 +104,7 @@
         "fields": {
             "watched": true,
             "title": "Spider-Man: No Way Home",
-            "rating": 9,
+            "rating": 5,
             "release_date": "2021-12-15",
             "review": "The spontaneous cheers in the cinema for Spider-Man: No Way Home were well worth it." 
         }
