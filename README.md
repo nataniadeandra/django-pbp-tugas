@@ -1,4 +1,7 @@
 <h1>Tugas PBP</h1>
+<h3>Nama: Natania Deandra</h3>
+<h3>NPM: 2106633090</h3>
+<h3>Kelas: D</h3>
 
 <details>
 <summary>Tugas 2</summary>
@@ -41,9 +44,17 @@ Membuat aplikasi baru pada Heroku, menambahkan api key dan app name pada reposit
 <details>
 <summary>Tugas 3</summary>
 
-Link Aplikasi Heroku: https://pbp-katalog-natania.herokuapp.com/mywatchlist/
+<h2>Link Aplikasi Heroku:</h2>
 
-Jawaban Pertanyaan:
+Link Pesan: https://pbp-katalog-natania.herokuapp.com/mywatchlist/
+
+Link HTML: https://pbp-katalog-natania.herokuapp.com/mywatchlist/html/
+
+Link XML: https://pbp-katalog-natania.herokuapp.com/mywatchlist/xml/
+
+Link JSON: https://pbp-katalog-natania.herokuapp.com/mywatchlist/json/
+
+<h2>Jawaban Pertanyaan:</h2>
 
 <h2>I. Jelaskan perbedaan antara JSON, XML, dan HTML!</h2>
 
@@ -93,12 +104,12 @@ Dalam mengembangkan suatu platform, ada kalanya kita perlu mengirimkan data dari
 <h2>IV. Screenshot Postman</h2>
 
 1. HTML
-![HTML Postman](/static/html_postman_mywatchlist.jpg)
+![HTML Postman](/static/html_mywatchlist.jpg)
 
 2. XML
-![XML Postman](/static/xml_postman_mywatchlist.jpg)
+![XML Postman](/static/xml_mywatchlist.jpg)
 
 3. JSON
-![JSON Postman](/static/json_postman_mywatchlist.jpg)
+![JSON Postman](/static/json_mywatchlist.jpg)
 
 </details>
