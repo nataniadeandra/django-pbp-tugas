@@ -3,7 +3,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 1,
         "fields": {
-            "watch": false,
+            "watched": false,
             "title": "The Godfather",
             "rating": 10,
             "release_date": "1972-03-24",
@@ -14,7 +14,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 2,
         "fields": {
-            "watch": true,
+            "watched": true,
             "title": "The Shawshank Redemption",
             "rating": 7,
             "release_date": "1994-09-22",
@@ -25,7 +25,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 3,
         "fields": {
-            "watch": true,
+            "watched": true,
             "title": "Divergent",
             "rating": 6,
             "release_date": "2014-03-20",
@@ -36,7 +36,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 4,
         "fields": {
-            "watch": true,
+            "watched": true,
             "title": "Insurgent",
             "rating": 4,
             "release_date": "2015-03-19",
@@ -47,7 +47,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 5,
         "fields": {
-            "watch": true,
+            "watched": true,
             "title": "The Fault in Our Stars",
             "rating": 7,
             "release_date": "2014-08-22",
@@ -58,7 +58,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 6,
         "fields": {
-            "watch": true,
+            "watched": true,
             "title": "Paper Towns",
             "rating": 9,
             "release_date": "2015-08-28",
@@ -69,7 +69,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 7,
         "fields": {
-            "watch": false,
+            "watched": false,
             "title": "Inception",
             "rating": 9,
             "release_date": "2010-07-16",
@@ -80,7 +80,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 8,
         "fields": {
-            "watch": false,
+            "watched": false,
             "title": "Bohemian Rhapsody",
             "rating": 7,
             "release_date": "2019-01-22",
@@ -91,7 +91,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 9,
         "fields": {
-            "watch": true,
+            "watched": true,
             "title": "Minions: The Rise of Gru",
             "rating": 7,
             "release_date": "2022-07-01",
@@ -102,7 +102,7 @@
         "model": "mywatchlist.mywatchlist",
         "pk": 10,
         "fields": {
-            "watch": true,
+            "watched": true,
             "title": "Spider-Man: No Way Home",
             "rating": 9,
             "release_date": "2021-12-15",

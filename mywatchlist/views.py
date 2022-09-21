@@ -22,7 +22,7 @@ def show_pesan(request):
     unwatched_count = 0
 
     for movie in data_my_watch_list:
-        if movie.watch == True:
+        if movie.watched == True:
             watched_count += 1
         else:
             unwatched_count += 1
