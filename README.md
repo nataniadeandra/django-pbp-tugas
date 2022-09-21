@@ -41,6 +41,8 @@ Membuat aplikasi baru pada Heroku, menambahkan api key dan app name pada reposit
 <details>
 <summary>Tugas 3</summary>
 
+Link Aplikasi Heroku: https://pbp-katalog-natania.herokuapp.com/mywatchlist/
+
 Jawaban Pertanyaan:
 
 I. Jelaskan perbedaan antara JSON, XML, dan HTML!
