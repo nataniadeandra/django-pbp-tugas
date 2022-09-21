@@ -5,6 +5,14 @@ from django.core import serializers
 
 # TODO: Create your views here.
 def show_html(request):
+    data_my_watch_list = MyWatchList.objects.all()
+
+    context = {
+        'watch_list': data_my_watch_list,
+        'nama': 'Natania Deandra',
+        'npm': 2106633090,
+    }
+    
     return render(request, "mywatchlist.html", context)
 
 def show_xml(request):
@@ -37,13 +45,3 @@ def show_pesan(request):
     }
 
     return render(request, "pesan.html", context_pesan)
-
-
-data_my_watch_list = MyWatchList.objects.all()
-
-context = {
-    'watch_list': data_my_watch_list,
-    'nama': 'Natania Deandra',
-    'npm': 2106633090,
-}
-
