@@ -12,7 +12,7 @@ def show_html(request):
         'nama': 'Natania Deandra',
         'npm': 2106633090,
     }
-    
+
     return render(request, "mywatchlist.html", context)
 
 def show_xml(request):
