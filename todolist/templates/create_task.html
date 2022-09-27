@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="header">
+    <h3>Task Form</h3>
+</div>
+    <form method="POST" action="" id="newForm">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+            <tr>  
+                <td></td>
+                <td><input type="submit" value="Create Task"/></td>
+            </tr>
+        </table>
+    </form>
+{% endblock content %}

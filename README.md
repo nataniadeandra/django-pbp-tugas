@@ -96,7 +96,7 @@ Dalam mengembangkan suatu platform, ada kalanya kita perlu mengirimkan data dari
     ```
     pada urlpatterns di urls.py pada folder project_django.
 
-3. Membuat class MyWatchList pada models.py dan meng-import models serta menambahkan models.Model sebagai argumen pada class MyWatchList untuk menandakan bahwa class akan dipakai sebagai model. Selain itu, kita juga perlu membuat atribut dari class tersebut dan menyesuaikan field-nya dengan tipe data dari atribut tersebut. Setelah itu, lakukan:
+3. Membuat class MyWatchList pada models.py dan meng-import models serta menambahkan models. Model sebagai argumen pada class MyWatchList untuk menandakan bahwa class akan dipakai sebagai model. Selain itu, kita juga perlu membuat atribut dari class tersebut dan menyesuaikan field-nya dengan tipe data dari atribut tersebut. Setelah itu, lakukan:
     ```
     python manage.py makemigrations
     python manage.py migrate
