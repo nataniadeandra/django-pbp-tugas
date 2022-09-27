@@ -5,7 +5,9 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from todolist.forms import TaskForm
-from todolist.models import Task;
+from todolist.models import Task
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 # Create your views here.
 @login_required(login_url='/todolist/login/')
@@ -74,3 +76,14 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('todolist:login')
+
+def display_finished(request, id):
+    task = Task.objects.get(user=request.user, id=id)
+    task.is_finished = not task.is_finished
+    task.save(update_fields = ['is_finished'])
+    return HttpResponseRedirect(reverse("todolist:show_todolist"))
+
+def delete_task(request, id):
+    task = Task.objects.get(id=id)
+    task.delete()
+    return HttpResponseRedirect(reverse("todolist:show_todolist"))

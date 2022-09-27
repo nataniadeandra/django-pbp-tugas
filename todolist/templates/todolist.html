@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% extends 'base.html' %}
 
  {% block content %}
@@ -6,16 +7,36 @@
 
   <table>
     <tr>
-      <th>Created Date</th>
-      <th>Title</th>
-      <th>Description</th>
+        <th></th>
+        <th>Created Date</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Delete</th>
     </tr>
     {% comment %} Add the data below this line {% endcomment %}
     {% for task in todolist %}
         <tr>
+            <th>
+                <input type="checkbox" 
+                        id='{{task.id}}'
+                        {% if task.is_finished %} checked {% endif %}
+                        onchange="location.href=`{% url 'todolist:display_finished' task.id %}`"
+                />
+            </th>
             <th>{{task.date}}</th>
             <th>{{task.title}}</th>
             <th>{{task.description}}</th>
+            <th>
+                {% if task.is_finished == True %}
+                    Finished
+                {% else %}
+                    Unfinished
+                {% endif %}
+            </th>
+            <th>
+                <button class="btn"><a href="{% url 'todolist:delete' task.id %}"><i class="fa fa-trash"></i></a></button>
+            </th>
         </tr>
     {% endfor %}
   </table>
