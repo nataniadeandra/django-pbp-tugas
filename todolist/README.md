@@ -2,28 +2,38 @@
 ## Link aplikasi Heroku:
 https://pbp-katalog-natania.herokuapp.com/todolist/
 
-<br><hr><br>
+<br><hr>
 
 ## Apa kegunaan {% csrf_token %} pada elemen `<form>`? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen `<form>`?
 
+<br>
+
 <p>CSRF token digunakan untuk menghindari CSRF (Cross Site Request Forgery) attacks yang umum terjadi ketika user mengirimkan data ke website melalui forms. Kode CSRF token berupa kombinasi angka dan huruf yang di-generate oleh Django. CSRF token pada form Django berupa hidden form field. Ketika user masuk ke website untuk mengisi form, Django akan mengecek apakah CSRF tokennya sudah sesuai.</p>
-<p>Jika tidak ada potongan kode {% csrf_token %}, maka CSRF (Cross Site Request Forgery) attacks akan lebih mudah terjadi sehingga menurunkan tingkat keamanan website.</p><br><hr><br>
+<p>Jika tidak ada potongan kode {% csrf_token %}, maka CSRF (Cross Site Request Forgery) attacks akan lebih mudah terjadi sehingga menurunkan tingkat keamanan website.</p>
+
+<br><hr>
 
 ## Apakah kita dapat membuat elemen `<form>` secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat `<form>` secara manual.
 
+<br>
+
 Bisa, sebagai contoh pada login.html, untuk membuat form, kita menggunakan `<form>` dengan method="POST" dan untuk input dari form tersebut, kita menggunakan `<input>` dengan type="text" dan name="" di mana isi dari name disesuaikan dengan data yang akan diinput oleh user. Lalu, tambahkan button bagi user untuk men-submit data-data yang sudah di-input.
 
-<br><hr><br>
+<br><hr>
 
 ## Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
+
+<br>
 
 <p>Setelah user memasukkan input pada form dan melakukan submisi, fungsi pada views.py yang telah dibuat sebelumnhya akan melakukan validasi input. Untuk form yang dibuat secara manual, kita dapat memvalidasinya menggunakan request.POST.get() di mana argumen di dalamnya disesuaikan dengan data yang diinput, lalu kita dapat menggunakan. Lain halnya untuk form yang menggunakan generator {{ form.as_table }}, kita dapat menggunakan fungsi is_valid() untuk validasi.</p>
 <p>Setelah melakukan validasi, untuk menyimpan data ke database, kita dapat menggunakan form.save().</p>
 <p>Untuk menampilkan data pada HTML, kita perlu mengambil data Task sesuai user dengan menggunakan objects.filter(user=request.user). Setelah itu masukkan data tersebut ke variabel context yang akan di-render. Pada template HTML, kita dapat menggunakan for loop yang sesuai dengan sintaks Django untuk menampilkan atribut dari tiap Task milik user tersebut.</p>
 
-<br><hr><br>
+<br><hr>
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+
+<br>
 
 1. Masuk ke directory project, nyalakan environment, lalu jalankan
     ```
