@@ -1,4 +1,3 @@
-<br>
 
 ## Link aplikasi Heroku:
 https://pbp-katalog-natania.herokuapp.com/todolist/
@@ -7,22 +6,16 @@ https://pbp-katalog-natania.herokuapp.com/todolist/
 
 ## Apa kegunaan {% csrf_token %} pada elemen `<form>`? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen `<form>`?
 
-<br>
-
 <p>CSRF token digunakan untuk menghindari CSRF (Cross Site Request Forgery) attacks yang umum terjadi ketika user mengirimkan data ke website melalui forms. Kode CSRF token berupa kombinasi angka dan huruf yang di-generate oleh Django. CSRF token pada form Django berupa hidden form field. Ketika user masuk ke website untuk mengisi form, Django akan mengecek apakah CSRF tokennya sudah sesuai.</p>
 <p>Jika tidak ada potongan kode {% csrf_token %}, maka CSRF (Cross Site Request Forgery) attacks akan lebih mudah terjadi sehingga menurunkan tingkat keamanan website.</p><br><hr><br>
 
 ## Apakah kita dapat membuat elemen `<form>` secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat `<form>` secara manual.
-
-<br>
 
 Bisa, sebagai contoh pada login.html, untuk membuat form, kita menggunakan `<form>` dengan method="POST" dan untuk input dari form tersebut, kita menggunakan `<input>` dengan type="text" dan name="" di mana isi dari name disesuaikan dengan data yang akan diinput oleh user. Lalu, tambahkan button bagi user untuk men-submit data-data yang sudah di-input.
 
 <br><hr><br>
 
 ## Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
-
-<br>
 
 <p>Setelah user memasukkan input pada form dan melakukan submisi, fungsi pada views.py yang telah dibuat sebelumnhya akan melakukan validasi input. Untuk form yang dibuat secara manual, kita dapat memvalidasinya menggunakan request.POST.get() di mana argumen di dalamnya disesuaikan dengan data yang diinput, lalu kita dapat menggunakan. Lain halnya untuk form yang menggunakan generator {{ form.as_table }}, kita dapat menggunakan fungsi is_valid() untuk validasi.</p>
 <p>Setelah melakukan validasi, untuk menyimpan data ke database, kita dapat menggunakan form.save().</p>
@@ -31,8 +24,6 @@ Bisa, sebagai contoh pada login.html, untuk membuat form, kita menggunakan `<for
 <br><hr><br>
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
-
-<br>
 
 1. Masuk ke directory project, nyalakan environment, lalu jalankan
     ```
@@ -56,26 +47,18 @@ Bisa, sebagai contoh pada login.html, untuk membuat form, kita menggunakan `<for
     ```
 
 4. Pada views.py buat fungsi-fungsi berikut:
-    ```
-    I. login_user
 
+    I. login_user<br>
     Fungsi login_user akan mendapatkan username dan password berdasarkan input user menggunakan request.POST.get() lalu melakukan autentikasi untuk mendapatkan user yang sesuai dengan username dan passwordnya. Apabila user tersebut ada, maka user akan ter-login dan program akan me-redirect user ke halaman show_todolist.
-    ```
-    ```
-    II. logout_user
 
+    II. logout_user<br>
     Fungsi logout_user akan me-logout user dan me-redirect user kembali ke halaman login.
-    ```
-    ```
-    III. register
 
+    III. register<br>
     Fungsi register menggunakan UserCreationForm() untuk membuat suatu user baru. Setelah itu, fungsi akan memvalidasi username dan password dari user baru menggunakan is_valid(). Jika validasi sukses, maka fungsi akan menggunakan form.save() untuk menyimpan user baru ke database. Setelah itu fungsi akan menampilkan pesan bahwa pembuatan akun sukses dan user akan ter-redirect ke halaman login.
-    ```
-    ```
-    IV. create_task
-
+    
+    IV. create_task<br>
     Fungsi create_task akan membuat form berdasarkan ModelForm TaskForm yang ada di forms.py. Setelah meminta input user, fungsi akan melakukan validasi dengan menggunakan is_valid(). Jika form valid, maka fungsi akan menambahkan user sesuai dengan user yang sekarang ter-login dan tanggal dibuatnya task sesuai dengan tanggal hari ini. Setelah itu, data akan disimpan ke database dan user akan ter-redirect ke halaman show_todolist.
-    ```
 
 5. Membuat file todolist.html yang akan ditampilkan ketika user mengakses halaman utama todolist. Untuk tombol tambah task baru dan tombol logout, kita dapat menggunakan `<button>` serta untuk menampilkan tanggal pembuatan task, judul task, dan deskripsi task, kita dapat menggunakan for loop. Username pengguna (didapat dari request.user) dan atribut dari Task (didapat menggunakan fungsi objects.filter(user=request.user)) akan dimuat ke dalam context pada fungsi show_todolist di views.py untuk di-render sesuai dengan template HTML.
 
