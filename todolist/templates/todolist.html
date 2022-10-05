@@ -1,11 +1,60 @@
+<style>
+    .zoom {
+      transition: transform .2s;
+    }
+    
+    .zoom:hover {
+      transform: scale(1.05);
+      box-shadow: 4px 4px 4px #ff0000;
+    }
+</style>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 {% extends 'base.html' %}
 
  {% block content %}
 
-  <h2>Hello, {{username}}!</h5>
 
-  <table>
+  <h2 class="fs-4 fw-bold text-center">Hello, <span class="text-danger fs-4 fw-bold">{{username}}</span>!</h2>
+
+  <div class="d-flex flex-wrap justify-content-center">
+    {% for task in todolist %}
+
+    <div class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
+        <div class="card-header">Created Date: {{task.date}}</div>
+        <div class="card-body">
+            <h5 class="card-title">{{task.title}}</h5>
+            <p class="card-text">{{task.description}}</p>
+            <p class="card-text">
+                {% if task.is_finished == True %}
+                    <p class="text-success fw-bold fs-7">Finished
+                        <input type="checkbox" 
+                        id='{{task.id}}'
+                        {% if task.is_finished %} checked {% endif %}
+                        onchange="location.href=`{% url 'todolist:display_finished' task.id %}`"
+                        />
+                    </p>
+                {% else %}
+                    <p class="text-danger fw-bold fs-7">Unfinished
+                        <input type="checkbox" 
+                        id='{{task.id}}'
+                        {% if task.is_finished %} checked {% endif %}
+                        onchange="location.href=`{% url 'todolist:display_finished' task.id %}`"
+                        />
+                    </p>
+                {% endif %}
+            </p>
+            
+            <button class="btn"><a href="{% url 'todolist:delete' task.id %}"><i class="fa fa-trash"></i></a></button>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+  <!-- <table>
     <tr>
         <th></th>
         <th>Created Date</th>
@@ -15,6 +64,8 @@
         <th>Delete</th>
     </tr>
     {% comment %} Add the data below this line {% endcomment %}
+
+    
     {% for task in todolist %}
         <tr>
             <th>
@@ -39,9 +90,11 @@
             </th>
         </tr>
     {% endfor %}
-  </table>
+  </table> -->
 
-  <button><a href="{% url 'todolist:create_task' %}">Tambah Task</a></button>
-  <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
-
+  <div class="my-3 text-center">
+    <button type="button" class="btn btn-danger mx-2"><a class="link-light" href="{% url 'todolist:create_task' %}">Tambah Task</a></button>
+    <button type="button" class="btn btn-outline-danger mx-2"><a class="link-danger" href="{% url 'todolist:logout' %}">Logout</a></button>
+  </div>
+   
  {% endblock content %}

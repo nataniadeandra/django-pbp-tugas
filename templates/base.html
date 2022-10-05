@@ -1,18 +1,37 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    {% include '_header.html' %}
+    {% block meta %}
+    {% endblock meta %}
+  </head>
+  <body>
+    <div class="container py-3">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  {% block meta %}
-  {% endblock meta %}
-</head>
-
-<body>
-  {% block content %}
-  {% endblock content %}
-</body>
-
+      <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="fs-4 fw-bold"><i class="fas fa-edit fa-fw text-danger"></i> Tugas PBP</span>
+          </a>
+    
+          <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/">Home</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/katalog">Katalog</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/mywatchlist/html">Daftar Film</a>
+            <a class="me-3 py-2 text-dark text-decoration-none" href="/todolist">To-Do List</a>
+          </nav>
+        </div>
+      </header>
+      <main>
+        {% block content %}
+        {% endblock content %}
+      </main>          
+    </div>
+    <footer class="footer mt-auto py-3 bg-danger">
+      <div class="container">
+        <span class="text-light">© 2022 - Natania Deandra</span>
+      </div>
+    </footer>
+  </body>
 </html>
