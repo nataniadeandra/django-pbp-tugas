@@ -6,7 +6,6 @@ https://pbp-katalog-natania.herokuapp.com/todolist/
 <hr>
 
 ## Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
-<br>
 
 <h2>1. Inline CSS</h2>
 
@@ -142,8 +141,12 @@ Dalam external CSS, attribute CSS ditulis di luar file HTML. Hal ini bisa dilaku
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 
+<br>
+
 1. Pada folder templates, buat file _header.html untuk styling menggunakan CSS. Styling ditulis di dalam tag `<style>` dan tidak lupa untuk meng-import bootstrap.
 2. Pada folder templates, isi file base.html dengan navigation bar untuk tiap halaman dan tambahkan styling.
 3. Tambahkan styling juga untuk create_task.html, login.html, register.html, dan todolist.html.
 4. Menambahkan widgets pada forms.py untuk mengatur lebar dan panjang dari text area deskripsi task.
 5. Push lalu deploy ke Heroku.
+
+<br>
