@@ -147,6 +147,7 @@ Dalam external CSS, attribute CSS ditulis di luar file HTML. Hal ini bisa dilaku
 2. Pada folder templates, isi file base.html dengan navigation bar untuk tiap halaman dan tambahkan styling.
 3. Tambahkan styling juga untuk create_task.html, login.html, register.html, dan todolist.html.
 4. Menambahkan widgets pada forms.py untuk mengatur lebar dan panjang dari text area deskripsi task.
-5. Push lalu deploy ke Heroku.
+5. Pada todolist.html buat cards untuk tiap task-nya.
+6. Push lalu deploy ke Heroku.
 
 <br>
