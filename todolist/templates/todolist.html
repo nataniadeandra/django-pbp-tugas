@@ -1,3 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
 <style>
     .zoom {
       transition: transform .2s;
@@ -11,15 +15,135 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-{% extends 'base.html' %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
 
- {% block content %}
+    // showModal -> previously showFunction()
+    function showModal(){
+        $('#modalForm').modal('show') 
+    }
+
+    // tongting
+
+    function showTask(data) {
+        for (i = 0; i < data.length; i++){
+                $(".card-collection").append(
+                `<div class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
+                    <div class="card-header">Created Date: ${data[i].fields.date}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">${data[i].fields.title}</h5>
+                        <p class="card-text">${data[i].fields.description}</p>
+                    </div>
+                </div>`
+                )
+            }
+    }
+
+    function showLastTask(data) {
+
+        $(".card-collection").append(
+                `<div class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
+                    <div class="card-header">Created Date: ${data[data.length-1].fields.date}</div>
+                    <div class="card-body">
+                        <h5 class="card-title">${data[data.length-1].fields.title}</h5>
+                        <p class="card-text">${data[data.length-1].fields.description}</p>
+                    </div>
+                </div>`
+        )
+    }
+
+
+
+    function submitForm(){
+            $.ajax({
+                type: "POST",
+                url: "{% url 'todolist:add_task' %}",
+                data: {
+                    title: $("#inputTitle").val(),
+                    description: $("#inputDescription").val(),
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                  },
+                dataType: "json",
+                success: function(){
+                    $("#modalForm").modal('hide')
+                    $.get("/todolist/json", function(data) {showLastTask(data)})
+                },
+                error: function(error){
+                    alert("Error happened")
+                }
+            })
+            return false;
+        
+    }
+
+    $(document).ready(function() {
+
+        $.get("/todolist/json", function(data) {
+            showTask(data)
+        })
+
+        // $("#add-task-btn").click(function(){
+        //     $.post("/todolist/add/", 
+        //         {
+        //             title: $("#task-title").val(),
+        //             description:$("#task-desc").val(),
+                
+        //         }, function(result, status) {
+        //             alert("HI")
+        //                 $(".card-collection").append(
+        //                     `<div class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
+        //                         <div class="card-header">Created Date: ${result.fields.date}</div>
+        //                         <div class="card-body">
+        //                             <h5 class="card-title">${result.fields.title}</h5>
+        //                             <p class="card-text">${result.fields.description}</p>
+        //                         </div>
+        //                     </div>`
+        //                 )
+        //                 $("#task-title").val('')
+        //                 $("#task-desc").val('')
+        //             }
+        //         )
+
+
+        // })
+    })
+
+    // $("#idForm").submit(function(e){
+    //   e.preventDefault();
+    //   var form = $(this);
+    //   var actionUrl = `todolist/add/`;
+    //   alert("hello")
+
+    //   $.ajax({
+    //     type: "POST",
+    //     url: actionUrl,
+    //     data: form.serialize(),
+    //     success: function(data){
+    //         var text = `<div class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
+    //                         <div class="card-header">Created Date: ${data.date}</div>
+    //                         <div class="card-body">
+    //                             <h5 class="card-title">${data.data.title}</h5>
+    //                             <p class="card-text">${data.data.description}</p>
+    //                         </div>
+    //                     </div>`
+    //         $(text).appendTo("#cards-collection")
+    //         // $("#exampleModal").modal('hide')
+    //     },
+    //     error: function(error){
+    //         console.log(error)
+    //         alert(error)
+    //     }
+    //   })
+    // })
+
+</script>
 
 
   <h2 class="fs-4 fw-bold text-center">Hello, <span class="text-danger fs-4 fw-bold">{{username}}</span>!</h2>
 
-  <div class="d-flex flex-wrap justify-content-center">
-    {% for task in todolist %}
+  <div class="d-flex flex-wrap justify-content-center card-collection">
+    <!-- {% for task in todolist %}
 
     <div class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
         <div class="card-header">Created Date: {{task.date}}</div>
@@ -50,7 +174,7 @@
         </div>
     </div>
 
-    {% endfor %}
+    {% endfor %} -->
 
 </div>
 
@@ -94,6 +218,49 @@
 
   <div class="my-3 text-center">
     <button type="button" class="btn btn-danger mx-2"><a class="link-light" href="{% url 'todolist:create_task' %}">Tambah Task</a></button>
+
+    <button onclick="showModal()" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#add-modal" data-bs-whatever="@mdo">
+        Add Task (Modal)
+    </button>
+
+    <!-- Modal -->
+<div class="modal fade" id="modalForm" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close" data-bs-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Add Task</h4>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <p class="statusMsg"></p>
+                <form role="form" id="taskForm" action="/todolist/add/" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="inputTitle">Title</label>
+                        <input type="text" class="form-control w-100" id="inputTitle" name='title' placeholder="Enter task title"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDescription">Description</label>
+                        <textarea class="form-control" id="inputDescription" name='description' placeholder="Enter your description"></textarea>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default h-25" data-bs-dismiss="modal">Close</button>
+                <button type="submit" onclick = "submitForm()" class="btn btn-primary submitBtn h-25" id="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <button type="button" class="btn btn-outline-danger mx-2"><a class="link-danger" href="{% url 'todolist:logout' %}">Logout</a></button>
   </div>
    
