@@ -19,13 +19,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
 
-    // showModal -> previously showFunction()
+    // Show modal used to add task
     function showModal(){
         $('#modalForm').modal('show') 
     }
 
-    // tongting
-
+    // Show ALL previously added tasks
     function showTask(data) {
         for (i = 0; i < data.length; i++){
                 $(".card-collection").append(
@@ -40,6 +39,7 @@
             }
     }
 
+    // Append ONLY newly added task
     function showLastTask(data) {
 
         $(".card-collection").append(
@@ -53,8 +53,7 @@
         )
     }
 
-
-
+    // Append newly added task to card-collection
     function submitForm(){
             $.ajax({
                 type: "POST",
@@ -77,65 +76,14 @@
         
     }
 
+    // Show task
     $(document).ready(function() {
 
         $.get("/todolist/json", function(data) {
             showTask(data)
         })
 
-        // $("#add-task-btn").click(function(){
-        //     $.post("/todolist/add/", 
-        //         {
-        //             title: $("#task-title").val(),
-        //             description:$("#task-desc").val(),
-                
-        //         }, function(result, status) {
-        //             alert("HI")
-        //                 $(".card-collection").append(
-        //                     `<div class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
-        //                         <div class="card-header">Created Date: ${result.fields.date}</div>
-        //                         <div class="card-body">
-        //                             <h5 class="card-title">${result.fields.title}</h5>
-        //                             <p class="card-text">${result.fields.description}</p>
-        //                         </div>
-        //                     </div>`
-        //                 )
-        //                 $("#task-title").val('')
-        //                 $("#task-desc").val('')
-        //             }
-        //         )
-
-
-        // })
     })
-
-    // $("#idForm").submit(function(e){
-    //   e.preventDefault();
-    //   var form = $(this);
-    //   var actionUrl = `todolist/add/`;
-    //   alert("hello")
-
-    //   $.ajax({
-    //     type: "POST",
-    //     url: actionUrl,
-    //     data: form.serialize(),
-    //     success: function(data){
-    //         var text = `<div class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
-    //                         <div class="card-header">Created Date: ${data.date}</div>
-    //                         <div class="card-body">
-    //                             <h5 class="card-title">${data.data.title}</h5>
-    //                             <p class="card-text">${data.data.description}</p>
-    //                         </div>
-    //                     </div>`
-    //         $(text).appendTo("#cards-collection")
-    //         // $("#exampleModal").modal('hide')
-    //     },
-    //     error: function(error){
-    //         console.log(error)
-    //         alert(error)
-    //     }
-    //   })
-    // })
 
 </script>
 
