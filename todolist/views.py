@@ -101,4 +101,10 @@ def add_task(request):
         is_finished = False
         item = Task(title=title, description=description, user=user, date=date, is_finished=is_finished)
         item.save()
-        return JsonResponse({"Message": "Task Successfully Created"}, status=200)
+        return JsonResponse({"Message": "Task Created Successfully"}, status=200)
+
+@csrf_exempt
+def delete_ajax (request, id):
+    task = Task.objects.get(user=request.user, id=id)
+    task.delete()
+    return JsonResponse({"Message": "Task Deleted Successfully"}, status=200)
