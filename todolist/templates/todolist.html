@@ -34,10 +34,9 @@
                         <h5 class="card-title">${data[i].fields.title}</h5>
                         <p class="card-text">${data[i].fields.description}</p>
                     </div>
-                    <div class="d-flex flex-wrap justify-content-center">
+                    <div class="d-flex justify-content-center mx-3 my-4">
                         <a onclick="delete_todolist(${data[i].pk})" id="delete-icon"><i class="fa fa-trash"></i></a>
                     </div>
-                    <br>
                 </div>`
                 )
             }
@@ -47,13 +46,13 @@
     function showLastTask(data) {
 
         $(".card-collection").append(
-                `<div id="${data[i].pk}" class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
+                `<div id="${data[data.length-1].pk}" class="card border border-danger mx-3 my-4 zoom" style="max-width: 18rem;">
                     <div class="card-header">Created Date: ${data[data.length-1].fields.date}</div>
                     <div class="card-body">
                         <h5 class="card-title">${data[data.length-1].fields.title}</h5>
                         <p class="card-text">${data[data.length-1].fields.description}</p>
                     </div>
-                    <div class="d-flex flex-wrap justify-content-center">
+                    <div class="d-flex justify-content-center mx-3 my-4">
                         <a onclick="delete_todolist(${data[data.length-1].pk})" id="delete-icon"><i class="fa fa-trash"></i></a>
                     </div>
                 </div>
